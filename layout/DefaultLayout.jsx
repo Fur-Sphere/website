@@ -1,5 +1,6 @@
 import { Stack } from "@mui/material";
 import DefaultAppBar from "./appbars/DefaultAppBar";
+import DefaultFooter from "./footers/DefaultFooter";
 
 const DefaultLayout = ({ children }) => {
 	return (
@@ -12,6 +13,7 @@ const DefaultLayout = ({ children }) => {
 			>
 				{children}
 			</Stack>
+			<DefaultFooter />
 		</Stack>
 	);
 }

@@ -1,10 +1,17 @@
 const paletteOptions = {
+	common: {
+		black: '#000000',
+		white: '#ffffff',
+		dark: '#121212'
+	},
 	red: {
 		main: '#ff0000',
 		dark: '#ff0000',
 		light: '#ffffff'
 	},
 	text: {
+		white: '#ffffff',
+		black: '#000000',
 		primary: '#f00',
 		secondary: '#ff0',
 		subtitle: '#012'
@@ -31,7 +38,9 @@ const paletteOptions = {
 	},
 	outline: {
 		dark: '#A08C8A',
-		darkVariant: '#49454F'
+		darkVariant: '#49454F',
+		light: '#857371',
+		lightVariant: '#CAC4D0'
 	}
 }
 
