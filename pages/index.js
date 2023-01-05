@@ -1,22 +1,11 @@
 import { Button, Stack, Typography } from "@mui/material"
 import DefaultLayout from "../layout/DefaultLayout"
+import Hero from "../components/home/Hero"
 
 const Home = () => {
 	return (
-		<Stack
-			gap='20px'
-		>
-			<Typography
-				variant='titleSmall'
-			>
-				Pawsphere
-			</Typography>
-			<Button
-				variant='contained'
-				color='primary'
-			>
-				Take the survey
-			</Button>
+		<Stack>
+			<Hero />
 		</Stack>
 	)
 }
