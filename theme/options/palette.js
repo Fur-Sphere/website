@@ -10,6 +10,7 @@ const paletteOptions = {
 		subtitle: '#012'
 	},
 	surface: {
+		main: '#fff',
 		0: '#ffffff',
 		1: '#FBF1F5',
 		2: '#F8EBEF',
@@ -27,6 +28,10 @@ const paletteOptions = {
 		main: '#BA1A1A',
 		dark: '#93000A',
 		light: '#DE3730'
+	},
+	outline: {
+		dark: '#A08C8A',
+		darkVariant: '#49454F'
 	}
 }
 

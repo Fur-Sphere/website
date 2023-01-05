@@ -12,6 +12,11 @@ const componentsOptions = {
 				textTransform: 'none',
 			}
 		}
+	},
+	MuiAppBar: {
+		defaultProps: {
+			elevation: 0
+		}
 	}
 }
 

@@ -1,4 +1,5 @@
 import { Button, Stack, Typography } from "@mui/material"
+import DefaultLayout from "../layout/DefaultLayout"
 
 const Home = () => {
 	return (
@@ -17,6 +18,14 @@ const Home = () => {
 				Take the survey
 			</Button>
 		</Stack>
+	)
+}
+
+Home.getLayout = (page) => {
+	return (
+		<DefaultLayout>
+			{page}
+		</DefaultLayout>
 	)
 }
 
