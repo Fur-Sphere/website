@@ -1,6 +1,6 @@
 import { Divider, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import { APP_LOGO_ON_DARK, APP_NAME } from "../../lib/constants";
+import { APP_LOGO_ON_DARK, APP_NAME, CONTACT_EMAIL } from "../../lib/constants";
 
 const DefaultFooterContact = () => {
 	return (
@@ -42,13 +42,17 @@ const DefaultFooterContact = () => {
 							Drop us a line and we'll get in touch
 						</Typography>
 						<Typography
-							variant='displaySmall'
+							variant='titleLarge'
 							color='text.white'
 							sx={{
 								textDecoration: 'underline'
 							}}
+							textAlign={{
+								xs: 'center',
+								md: 'left'
+							}}
 						>
-							hello@pawsphere.in
+							{ CONTACT_EMAIL }
 						</Typography>
 					</Stack>
 				</Stack>
