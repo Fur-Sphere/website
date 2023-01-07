@@ -76,7 +76,7 @@ const DefaultFooterCopyright = () => {
 					textAlign='center'
 					color='text.white'
 				>
-					Pawsphere ©️ 2022
+					{ APP_NAME } ©️ 2023
 				</Typography>
 			</Stack>
 		</Stack>
