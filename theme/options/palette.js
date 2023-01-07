@@ -20,7 +20,8 @@ const paletteOptions = {
 		black: '#000000',
 		primary: '#f00',
 		secondary: '#ff0',
-		subtitle: '#012'
+		subtitle: '#012',
+		neutral90: '#EDE0DE'
 	},
 	surface: {
 		main: '#fff',
@@ -35,7 +36,8 @@ const paletteOptions = {
 		main: '#AA3532',
 		dark: '#891C1D',
 		light: '#CB4D47',
-		contrastText: '#ffffff'
+		contrastText: '#ffffff',
+		20: '#680009'
 	},
 	error: {
 		main: '#BA1A1A',
