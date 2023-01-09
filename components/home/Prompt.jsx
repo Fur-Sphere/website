@@ -36,6 +36,7 @@ const Prompt = () => {
 					</Typography>
 				</Stack>
 				<Button
+					href='https://forms.gle/EJdZSTWaXSsX3ra29'
 					variant='contained'
 					color='black'
 					endIcon={ <ArrowForward /> }
