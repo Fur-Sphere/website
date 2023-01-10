@@ -38,6 +38,7 @@ const DefaultAppBar = () => {
 						height={25.01}
 					/>
 					<Button
+						href="https://forms.gle/ccw9bDwPSFUfoU9c7"
 						endIcon={ <ArrowForward /> }
 					>
 						Join the waitlist

@@ -31,6 +31,7 @@ const Hero = () => {
 						The go-to <Highlighted bgcolor='primary.main' color='text.white'>companion</Highlighted> of all smart pet owners
 					</Typography>
 					<Button
+					    href="https://forms.gle/ccw9bDwPSFUfoU9c7"
 						variant='contained'
 						color='black'
 						endIcon={ <ArrowForward sx={{ fontSize: '18px' }} /> }
