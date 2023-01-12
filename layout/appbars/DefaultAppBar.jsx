@@ -2,6 +2,7 @@ import { AppBar, Button, Container, Stack, Toolbar } from "@mui/material";
 import Image from "next/image";
 import { APP_LOGO_ON_LIGHT, APP_NAME } from "../../lib/constants";
 import { ArrowForward } from "@mui/icons-material";
+import Link from "next/link";
 
 const DefaultAppBar = () => {
 	return (
@@ -14,7 +15,8 @@ const DefaultAppBar = () => {
 				alignItems: 'center',
 				borderBottom: '1px solid',
 				borderColor: 'outline.darkVariant',
-				backgroundColor: 'surface.1'
+				backgroundColor: 'rgba( 255, 255, 255, 0.5)',
+				backdropFilter: 'blur(10px)'
 			}}
 		>
 			<Stack
@@ -31,18 +33,25 @@ const DefaultAppBar = () => {
 					alignItems='center'
 					gap='10px'
 				>
-					<Image 
-						alt={ APP_NAME }
-						src={ APP_LOGO_ON_LIGHT }
-						width={132}
-						height={25.01}
-					/>
-					<Button
-						href="https://forms.gle/ccw9bDwPSFUfoU9c7"
-						endIcon={ <ArrowForward /> }
+					<Link
+						href='/'
 					>
-						Join the waitlist
-					</Button>
+						<Image
+							alt={ APP_NAME }
+							src={ APP_LOGO_ON_LIGHT }
+							width={132}
+							height={25.01}
+						/>
+					</Link>
+					<Link
+						href='/waitlist'
+					>
+						<Button
+							endIcon={ <ArrowForward /> }
+						>
+							Join the waitlist
+						</Button>
+					</Link>
 				</Stack>
 			</Stack>
 		</AppBar>
