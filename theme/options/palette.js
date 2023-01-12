@@ -18,8 +18,6 @@ const paletteOptions = {
 	text: {
 		white: '#ffffff',
 		black: '#000000',
-		primary: '#f00',
-		secondary: '#ff0',
 		subtitle: '#012',
 		neutral90: '#EDE0DE'
 	},

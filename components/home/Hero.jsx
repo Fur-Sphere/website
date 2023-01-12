@@ -2,6 +2,7 @@ import { Button, Stack, Typography } from "@mui/material";
 import Highlighted from "../common/typography/Highlighted";
 import { ArrowForward } from "@mui/icons-material";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
 	return (
@@ -30,14 +31,17 @@ const Hero = () => {
 					>
 						The go-to <Highlighted bgcolor='primary.main' color='text.white'>companion</Highlighted> of all smart pet owners
 					</Typography>
-					<Button
-					    href="https://forms.gle/ccw9bDwPSFUfoU9c7"
-						variant='contained'
-						color='black'
-						endIcon={ <ArrowForward sx={{ fontSize: '18px' }} /> }
+					<Link
+						href='/waitlist'
 					>
-						Join the waitlist
-					</Button>
+						<Button
+							variant='contained'
+							color='black'
+							endIcon={ <ArrowForward sx={{ fontSize: '18px' }} /> }
+						>
+							Join the waitlist
+						</Button>
+					</Link>
 				</Stack>
 				<Image 
 					alt='Photo by <a href="https://unsplash.com/@cuartodeiibra?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mel Elías</a> on <a href="https://unsplash.com/photos/2_KjpNXFl5M?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
