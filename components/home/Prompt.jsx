@@ -6,51 +6,55 @@ import Image from "next/image";
 
 const Prompt = () => {
 	return (
-		<Container
-			padding='64px 32px'
-			gap='32px'
-			direction={{
-				xs: 'column',
-				sm: 'row'
-			}}
-			alignItems={{
-				xs: 'center',
-				md: 'normal'
-			}}
+		<Stack
+			bgcolor='surface.1'
 		>
-			<Stack
+			<Container
+				padding='64px 32px'
 				gap='32px'
+				direction={{
+					xs: 'column',
+					sm: 'row'
+				}}
+				alignItems={{
+					xs: 'center',
+					md: 'normal'
+				}}
 			>
 				<Stack
-					gap='8px'
+					gap='32px'
 				>
-					<Typography
-						variant='displayMedium'
+					<Stack
+						gap='8px'
 					>
-						{ APP_NAME } is in development!
-					</Typography>
-					<Typography
-						variant='bodyLarge'
+						<Typography
+							variant='displayMedium'
+						>
+							{ APP_NAME } is in development!
+						</Typography>
+						<Typography
+							variant='bodyLarge'
+						>
+							Help us build the best companion for you by taking this small survey
+						</Typography>
+					</Stack>
+					<Button
+						href='https://forms.gle/EJdZSTWaXSsX3ra29'
+						variant='contained'
+						color='black'
+						endIcon={ <ArrowForward /> }
 					>
-						Help us build the best companion for you by taking this small survey 
-					</Typography>
+						Take Survey
+					</Button>
 				</Stack>
-				<Button
-					href='https://forms.gle/EJdZSTWaXSsX3ra29'
-					variant='contained'
-					color='black'
-					endIcon={ <ArrowForward /> }
-				>
-					Take Survey
-				</Button>
-			</Stack>
-			<Image 
-				src='/images/mockup-front.png'
-				alt='App mockup'
-				width={250}
-				height={472}
-			/>
-		</Container>
+				<Image
+					src='/images/mockup-front.png'
+					alt='App mockup'
+					width={250}
+					height={472}
+				/>
+			</Container>
+		</Stack>
 	);
 }
 

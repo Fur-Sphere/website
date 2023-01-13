@@ -11,6 +11,7 @@ const para2 = 'We believe in connecting you and your pets with special treatment
 const highlighted = 'As we know, your best companion is your pet!'
 
 const stateOptions = [
+	"Select",
 	"Andhra Pradesh",
 	"Arunachal Pradesh",
 	"Assam",
@@ -52,7 +53,7 @@ const stateOptions = [
 const formValidationSchema = yup.object({
 	name: yup.string().required('Required'),
 	email: yup.string().email('Invalid email').required('Required'),
-	state: yup.string().required('Required'),
+	state: yup.string().required('Required').nullable(),
 	city: yup.string().required('Required'),
 	isPetOwner: yup.boolean(),
 	isTrainer: yup.boolean(),
@@ -113,6 +114,7 @@ const Form = () => {
 			gap='20px'
 			maxWidth='400px'
 			width='100%'
+			autoComplete='off'
 		>
 			<TextField
 				name='name'
@@ -136,6 +138,7 @@ const Form = () => {
 			/>
 			<Autocomplete 
 				options={stateOptions}
+				getOptionDisabled={(option) => option === "Select"}
 				value={formik.values.state || stateOptions[0]}
 				onChange={(e, value) => {
 					formik.setFieldValue('state', value)
