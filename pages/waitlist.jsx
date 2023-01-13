@@ -101,7 +101,7 @@ const Intro = () => {
 						{ getThankYouMessage(name) }
 					</Typography>
 					<Typography>
-						In the meantime, please follow us on <Link href="https://www.instagram.com/fur_sphere/"><Typography sx={{ textDecoration: 'underline' }} color='primary'>@fur_sphere</Typography></Link> for updates and exclusive content.
+						In the meantime, please follow us on <Link href="https://www.instagram.com/fur_sphere/"><Typography component='span' sx={{ textDecoration: 'underline' }} color='primary'>@fur_sphere</Typography></Link> for updates and exclusive content.
 					</Typography>
 				</Stack>
 			) }
@@ -138,7 +138,11 @@ const Form = () => {
 			} 
 			catch(err) {
 				console.log(err.response)
-				setError('Request failed')
+				if(err.message === 'Request Failed') {
+					setError(err.message)
+				}
+				else 
+				setError(err.response.data.message)
 			}
 			finally {
 				setIsLoading(val => false)
