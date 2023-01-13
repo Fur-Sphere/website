@@ -8,6 +8,7 @@ const Hero = () => {
 	return (
 		<Stack
 			alignItems='center'
+			bgcolor='surface.1'
 		>
 			<Stack
 				maxWidth='880px'
