@@ -1,9 +1,13 @@
-import { Autocomplete, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Stack, TextField, Typography } from "@mui/material"
+import { Alert, Autocomplete, Button, Checkbox, CircularProgress, FormControl, FormControlLabel, FormGroup, FormLabel, Stack, TextField, Typography } from "@mui/material"
 import Container from "../components/common/layout/Container"
 import DefaultLayout from "../layout/DefaultLayout"
 import Highlighted from "../components/common/typography/Highlighted"
 import { useFormik } from "formik"
 import * as yup from 'yup'
+import baseAPI from "../lib/axios/base"
+import { useState } from "react"
+import useWaitList from "../lib/store/waitlist"
+import Link from "next/link"
 
 const para1 = 'furSphere, being the ultimate fur-care for your tiny pets empowers you with all the emergency help by getting you the specific details of the Pet centers, Training centers, Pet NGOs, Vet Hospitals, and accessories.'
 const para2 = 'We believe in connecting you and your pets with special treatment and services giving you the best-curated catalog of items and places, and websites all in one with the ideology that every pet deserves the best. Making you a healthy pet parent and providing you with the endurable products is our ultimate goal. Aiming for a cage-free ecosystem for the animals and looking forward to a beautiful friendship between animals and humans in the future.'
@@ -50,6 +54,9 @@ const stateOptions = [
 	"Puducherry"
 ]
 
+const getThankYouMessage = (name) => `Thanks ${name} for showing interest! We're thrilled to have you on board as one of our early adopters. 
+We can't wait for you to be a part of our journey.`
+
 const formValidationSchema = yup.object({
 	name: yup.string().required('Required'),
 	email: yup.string().email('Invalid email').required('Required'),
@@ -61,6 +68,8 @@ const formValidationSchema = yup.object({
 })
 
 const Intro = () => {
+	const [joined, name] = useWaitList(state => [state.joined, state.name])
+
 	return (
 		<Stack
 			gap='24px'
@@ -70,7 +79,7 @@ const Intro = () => {
 			>
 				Join the Wait-list
 			</Typography>
-			<Stack
+			{!joined && (<Stack
 				gap='12px'
 			>
 				<Typography>{para1}</Typography>
@@ -85,13 +94,26 @@ const Intro = () => {
 						{highlighted}
 					</Highlighted>
 				</Typography>
-
-			</Stack>
+			</Stack>)}
+			{ joined && (
+				<Stack>
+					<Typography>
+						{ getThankYouMessage(name) }
+					</Typography>
+					<Typography>
+						In the meantime, please follow us on <Link href="https://www.instagram.com/fur_sphere/"><Typography sx={{ textDecoration: 'underline' }} color='primary'>@fur_sphere</Typography></Link> for updates and exclusive content.
+					</Typography>
+				</Stack>
+			) }
 		</Stack>
 	)
 }
 
 const Form = () => {
+	const [isLoading, setIsLoading] = useState(false)
+	const [error, setError] = useState()
+	const [setJoinedTrue, setName] = useWaitList(state => [state.setJoinedTrue, state.setName])
+
 	const formik = useFormik({
 		initialValues: {
 			name: '',
@@ -102,8 +124,25 @@ const Form = () => {
 			isTrainer: false,
 			isVet: false
 		},
-		onSubmit: (values) => {
+		onSubmit: async (values) => {
 			console.log(values)
+			setIsLoading(val => true)
+			try {
+				const response = await baseAPI.waitlist.post(values)
+				console.log(response.data)
+				if(response.status === 201) {
+					setJoinedTrue()
+					setName(values.name)
+				}
+				else throw Error('Request failed')
+			} 
+			catch(err) {
+				console.log(err.response)
+				setError('Request failed')
+			}
+			finally {
+				setIsLoading(val => false)
+			}
 		},
 		validationSchema: formValidationSchema
 	})
@@ -186,18 +225,29 @@ const Form = () => {
 					/>
 				</FormGroup>
 			</FormControl>
+			{error && (
+				<Alert
+					severity="error"
+				>
+					{error}
+				</Alert>
+			)}
 			<Button
 				variant='contained'
 				color='black'
 				onClick={formik.handleSubmit}
 			>
-				Join
+				{ isLoading ? <CircularProgress size={24} color="white" /> : 'Join' }
 			</Button>
 		</Stack>
 	)
 }
 
+
+
 const WaitList = () => {
+	const joined = useWaitList(state => state.joined)
+
 	return (
 		<Stack
 			bgcolor='surface.1'
@@ -208,7 +258,7 @@ const WaitList = () => {
 					gap='64px'
 				>
 					<Intro />
-					<Form />
+					{!joined && <Form />}
 				</Stack>
 			</Container>
 		</Stack>
