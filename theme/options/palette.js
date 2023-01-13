@@ -10,6 +10,11 @@ const paletteOptions = {
 		light: '#000000',
 		contrastText: '#ffffff'
 	},
+	white: {
+		main: '#ffffff',
+		dark: '#ffffff',
+		light: '#ffffff',
+	},
 	red: {
 		main: '#ff0000',
 		dark: '#ff0000',
