@@ -19,6 +19,10 @@ export default function Document() {
 					name='description' 
 					content='furSphere, being the ultimate fur-care for your tiny pets empowers you with all the emergency help by getting you the specific details of the Pet centers, Training centers, Pet NGOs, Vet Hospitals, and accessories.'
 				/>
+				<meta 
+					name='keywords'
+					content='pet, fursphere, pet shopping, startup, vssut, burla, odisha, pet emergency, lalit kumar, pet management, cats, dogs'
+				/>
 			</Head>
       <body>
         <Main />
