@@ -52,6 +52,10 @@ const Prompt = () => {
 					alt='App mockup'
 					width={250}
 					height={472}
+					style={{
+						width: '100%',
+						height: 'auto'
+					}}
 				/>
 			</Container>
 		</Stack>

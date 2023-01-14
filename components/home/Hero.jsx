@@ -49,6 +49,10 @@ const Hero = () => {
 					src='/images/hero-image.png'
 					width={352}
 					height={392}
+					style={{
+						width: '100%',
+						height: 'auto'
+					}}
 				/>
 			</Stack>
 		</Stack>
