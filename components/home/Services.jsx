@@ -80,6 +80,10 @@ const ServicesContent = () => {
 				alt='Vets and Pets'
 				width={312}
 				height={343.84}
+				style={{
+					width: '100%',
+					height: 'auto'
+				}}
 			/>
 			<ServiceDescriptionContainer />
 		</Stack>
