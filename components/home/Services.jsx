@@ -81,6 +81,8 @@ const ServicesContent = () => {
 				width={312}
 				height={343.84}
 				style={{
+					maxWidth: 312,
+					maxHeight: 343.84,
 					width: '100%',
 					height: 'auto'
 				}}

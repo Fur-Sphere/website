@@ -53,6 +53,8 @@ const Prompt = () => {
 					width={250}
 					height={472}
 					style={{
+						maxWidth: 250,
+						maxHeight: 472,
 						width: '100%',
 						height: 'auto'
 					}}

@@ -50,6 +50,8 @@ const Hero = () => {
 					width={352}
 					height={392}
 					style={{
+						maxWidth: 352,
+						maxHeight: 392,
 						width: '100%',
 						height: 'auto'
 					}}
